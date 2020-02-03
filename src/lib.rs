@@ -1,21 +1,6 @@
-// front of house module with other modules that in turn contain functions
+mod front_of_house;
+
 // this lib.rs module is further contained in an implicit module known as a root crate
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-
-        fn _seat_at_table() {}
-    }
-
-    mod serving {
-        fn _take_order() {}
-
-        fn _serve_order() {}
-
-        fn _take_payment() {}
-    }
-}
-
 mod back_of_house {
     // making an enum public exposes all of its variants
     #[derive(Debug)]
@@ -57,12 +42,9 @@ fn serve_order() {}
 
 pub fn eat_at_restaurant() {
     //Absolute Path
-    crate::front_of_house::hosting::add_to_waitlist();
+    crate::back_of_house::fix_incorrect_order();
 
-    //Relative Path
-    front_of_house::hosting::add_to_waitlist();
-
-    //Cook something
+    //Cook something with a relatve path
     back_of_house::fix_incorrect_order();
 
     // Order breakfast with some sourdough
