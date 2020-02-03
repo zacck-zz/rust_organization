@@ -16,10 +16,24 @@ mod front_of_house {
     }
 }
 
+mod back_of_house {
+    pub fn fix_incorrect_order() {
+        cook_order();
+        super::serve_order();
+    }
+
+    fn cook_order() {}
+}
+
+fn serve_order() {}
+
 pub fn eat_at_restaurant() {
     //Absolute Path
     crate::front_of_house::hosting::add_to_waitlist();
 
     //Relative Path
-    front_of_house::hosting::add_to_waitlist()
+    front_of_house::hosting::add_to_waitlist();
+
+    //Cook something
+    back_of_house::fix_incorrect_order();
 }
