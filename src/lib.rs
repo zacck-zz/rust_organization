@@ -17,6 +17,13 @@ mod front_of_house {
 }
 
 mod back_of_house {
+    // making an enum public exposes all of its variants
+    #[derive(Debug)]
+    pub enum Appetizer {
+        Soup,
+        Salad,
+    }
+
     pub struct Breakfast {
         // toast field is public
         pub toast: String,
@@ -67,4 +74,10 @@ pub fn eat_at_restaurant() {
 
     // Show the fruit
     meal.what_fruit();
+
+    let salad = back_of_house::Appetizer::Salad;
+
+    let soup = back_of_house::Appetizer::Soup;
+
+    println!("Salad: {}, Soup: {}", salad, soup);
 }
